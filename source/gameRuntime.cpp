@@ -3,27 +3,27 @@
 #include <string>
 #include <iostream>
 
-bool engine::gameRuntime::makeWindow(short width, short height, std::string title) {
+void engine::gameRuntime::makeWindow(short width, short height, std::string title) {
 
-    SDL_SetWindowSize(mainWindow, width, height);
-    SDL_SetWindowTitle(mainWindow, title.c_str());
+    SDL_SetWindowSize(mainWindow, width, height); //Sets the window size
+    SDL_SetWindowTitle(mainWindow, title.c_str()); //sets the window title
 
 };
 
 
 void engine::gameRuntime::gameLoop() {
 
-    setup();
+    setup(); //calls the setup function
 
-    while (running) {
+    while (running) { //game loop
 
-        while (SDL_PollEvent(&event)) {
+        while (SDL_PollEvent(&event)) { //updates the event queue
 
-            if (event.type == SDL_QUIT) {running = false;}
+            if (event.type == SDL_QUIT) {running = false;} //ends the loop if window is closed
 
         }
 
-        update();
+        update(); //calls the update function
 
     }
 

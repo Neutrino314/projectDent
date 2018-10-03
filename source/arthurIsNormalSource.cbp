@@ -36,6 +36,8 @@
 			<Add option="-lSDL2" />
 		</Linker>
 		<Unit filename="engineMain(Engine).h" />
+		<Unit filename="engineUtils.cpp" />
+		<Unit filename="engineUtils.h" />
 		<Unit filename="gameRuntime.cpp" />
 		<Unit filename="gameRuntime.h" />
 		<Unit filename="main(Game).cpp" />
