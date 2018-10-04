@@ -27,3 +27,15 @@ float engineUtils::rads2Degs(float angle) {return angle * (180 / 3.1415926535897
 
 float engineUtils::degs2Rads(float angle) {return angle / (180 / 3.14159265358979);}; //converts a value in degrees to radians by dividing by 180 divided by pi
 
+void engineUtils::engineRect::rotateRect(signed short rotation) {
+
+        rotationCurrent += rotation;
+
+        rotation = rotationCurrent;
+
+        pointList[0] = {(std::cos(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.y};
+        pointList[1] = {(std::cos(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.y};
+        pointList[3] = {(std::cos(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.y};
+        pointList[2] = {(std::cos(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.y};
+
+};

@@ -25,6 +25,8 @@ namespace engineUtils {
 
     public:
 
+        signed short rotationCurrent {0};
+
         void drawRect(SDL_Renderer* renderer, short r, short g, short b, short a = 255); //draws the rectangle itself
 
         engineRect(short x, short y, short width, short height, short rotation) { //constructor taking position, dimensions and rotation as parameters
@@ -47,12 +49,14 @@ namespace engineUtils {
 
             //std::cout << pointAngles[3] << std::endl;
 
-            pointList[0] = {(std::cos(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.y};
-            pointList[1] = {(std::cos(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.y};
-            pointList[3] = {(std::cos(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.y};
-            pointList[2] = {(std::cos(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.y};
+            pointList[0] = {static_cast<short>((std::cos(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.x), static_cast<short>((std::sin(degs2Rads(pointAngles[0] + rotation)) * hypotenuse) + centerPoint.y)};
+            pointList[1] = {static_cast<short>((std::cos(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.x), static_cast<short>((std::sin(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.y)};
+            pointList[3] = {static_cast<short>((std::cos(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.x), static_cast<short>((std::sin(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.y)};
+            pointList[2] = {static_cast<short>((std::cos(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.x), static_cast<short>((std::sin(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.y)};
 
         }
+
+        void rotateRect(signed short rotation);
 
     };
 
