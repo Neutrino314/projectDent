@@ -4,6 +4,6 @@
 #define ENGINEMAIN(ENGINE)_H_INCLUDED
 
 #include "gameRuntime.h" //includes the engine runtime class
-#include "engineUtils.h" //includes engin utility functions
+#include "engineUtils.h" //includes engine utility functions
 
 #endif // ENGINEMAIN(ENGINE)_H_INCLUDED

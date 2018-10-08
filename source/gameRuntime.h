@@ -16,8 +16,6 @@ class gameRuntime {
         bool running = true; //a running variable for the game loop
         SDL_Event event; //a variable to hold the SDL_Event queue
         int dimensions[2] {0}; //holds the size of the window
-        std::vector<engineUtils::engineRect> rectVector;
-        const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
 
     public:
 
@@ -29,7 +27,7 @@ class gameRuntime {
 
         void setup(); //declaring the setup method
 
-        void gameLoop(); //the game loop method that handles events and calls settup and update
+        void gameLoop(); //the game loop method that handles events and calls setup and update
 
         ~gameRuntime() { //DESTRUCTOR
 

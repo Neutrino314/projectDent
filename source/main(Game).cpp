@@ -6,28 +6,12 @@ void engine::gameRuntime::setup() { //Declares all the tasks to be performed bef
 
     this->makeWindow(1200, 900); //make the window with dimensions 1200x900 with the default caption
 
-    rectVector.push_back(engineUtils::engineRect(400, 400, 80, 30, 0));
-
 };
 
 void engine::gameRuntime::update() { //the update method to be called once per loop(Kind of)
 
     SDL_SetRenderDrawColor(mainRenderer, 230, 230, 255, 255);
     SDL_RenderClear(mainRenderer); //clears the screen
-
-    if (keyboardState[SDL_SCANCODE_LEFT]) {
-
-        rectVector[0].rotateRect(1);
-
-    }
-
-    if (keyboardState[SDL_SCANCODE_RIGHT]) {
-
-        rectVector[0].rotateRect(-1);
-
-    }
-
-    rectVector[0].drawRect(mainRenderer, 255, 0, 0);
 
     SDL_RenderPresent(mainRenderer); // presents the changes to the renderer
 

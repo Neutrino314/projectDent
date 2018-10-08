@@ -1,5 +1,7 @@
 #include <SDL.h>
+#include <SDL_image.h>
 #include <cmath>
+#include <string>
 #include <iostream>
 #ifndef ENGINEUTILS_H_INCLUDED
 #define ENGINEUTILS_H_INCLUDED
@@ -10,6 +12,8 @@ namespace engineUtils {
 
     float rads2Degs(float angle); //converts radians to degrees
     float degs2Rads(float angle); //converts degrees to radians
+
+    SDL_Texture* loadTexture(std::string path); //loads and returns a texture
 
     class engineRect { //rectangle class to be used throughout the engine
 
@@ -33,7 +37,7 @@ namespace engineUtils {
 
             hypotenuse = std::sqrt(std::pow(width, 2) + std::pow(height, 2)); //copies a value to the hypotenuse
 
-            centerPoint = {(x + width) / 2, (y + height) / 2};
+            centerPoint = {x, y};
 
             //std::cout << hypotenuse << std::endl;
 
@@ -57,6 +61,8 @@ namespace engineUtils {
         }
 
         void rotateRect(signed short rotation);
+
+        void moveRect(signed short x, signed short y);
 
     };
 

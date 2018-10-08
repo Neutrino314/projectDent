@@ -1,4 +1,6 @@
 #include <SDL.h>
+#include <string>
+#include <SDL_image.h>
 #include "engineUtils.h"
 
 void engineUtils::clearScreen(SDL_Renderer* renderer, short r, short g, short b, short a) { //the definition of a function that clears the screen and fills it with a specified colour
@@ -37,5 +39,22 @@ void engineUtils::engineRect::rotateRect(signed short rotation) {
         pointList[1] = {(std::cos(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[1] + rotation)) * hypotenuse) + centerPoint.y};
         pointList[3] = {(std::cos(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[2] + rotation)) * hypotenuse) + centerPoint.y};
         pointList[2] = {(std::cos(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[3] + rotation)) * hypotenuse) + centerPoint.y};
+
+};
+
+void engineUtils::engineRect::moveRect(signed short x, signed short y) {
+
+    centerPoint.x += x;
+    centerPoint.y += y;
+
+    pointList[0] = {(std::cos(degs2Rads(pointAngles[0] + rotationCurrent)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[0] + rotationCurrent)) * hypotenuse) + centerPoint.y};
+    pointList[1] = {(std::cos(degs2Rads(pointAngles[1] + rotationCurrent)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[1] + rotationCurrent)) * hypotenuse) + centerPoint.y};
+    pointList[3] = {(std::cos(degs2Rads(pointAngles[2] + rotationCurrent)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[2] + rotationCurrent)) * hypotenuse) + centerPoint.y};
+    pointList[2] = {(std::cos(degs2Rads(pointAngles[3] + rotationCurrent)) * hypotenuse) + centerPoint.x, (std::sin(degs2Rads(pointAngles[3] + rotationCurrent)) * hypotenuse) + centerPoint.y};
+
+};
+
+SDL_Texture* engineUtils::loadTexture(std::string path) {
+
 
 };
